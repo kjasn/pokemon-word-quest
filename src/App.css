@@ -1,0 +1,60 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+header > img {
+    width: 350px;
+}
+
+header > h1 {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+header > p {
+    font-size: 1rem;
+    font-weight: 500;
+    max-width: 350px;
+}
+
+/* *********************************** */
+
+section.game-status {
+    background-color: #10a95b;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+}
+
+section.game-status > h2 {
+    font-size: 1.25rem;
+    margin: 5px;
+}
+
+section.game-status > p {
+    margin: 5px;
+}
+
+/* *************************** */
+section.chips {
+    display: flex;
+    max-width: 500px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+div.chip-item {
+    display: flex;
+    margin: 1px 6px;
+}
+
+div.chip-item > img {
+    width: 20px;
+    margin-right: 2px;
+}
+div.chip-item > p {
+    font-size: 0.9rem;
+}
