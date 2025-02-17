@@ -2,14 +2,19 @@
     box-sizing: border-box;
 }
 
-body {
+body,
+html {
     margin: 0;
-    font-family: "Dekk", serif;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: "Fira Code", Courier, monospace;
     font-style: normal;
-    padding: 20px;
-    height: 100vh;
+    color: #d9d9d9;
+    /* background-color: #262626; */
+}
+
+body {
     display: flex;
     justify-content: center;
-    color: #d9d9d9;
-    background-color: #262626;
 }
