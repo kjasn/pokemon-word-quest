@@ -3,12 +3,13 @@ interface ChipProps {
     color: string;
     name: string;
     url: string;
+    disabled?: boolean;
 }
 
 export default function Chip(props: ChipProps) {
     const styles = {
-        backgroundColor: props.backgroundColor,
-        color: props.color,
+        backgroundColor: props.disabled ? "#ccc" : props.backgroundColor,
+        color: props.disabled ? "#666" : props.color,
     };
     return (
         <div className="chip-item" style={styles}>

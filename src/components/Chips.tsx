@@ -21,11 +21,15 @@ const POKEMONS = [
     { name: "肯泰罗", url: Tauros, backgroundColor: "#A8A878", color: "#FFFFFF" },
 ];
 
-export default function Chips() {
+interface ChipsProps {
+    leftAttempts: number;
+}
+
+export default function Chips(props: ChipsProps) {
     return (
         <section className="chips">
-            {POKEMONS.map((pokemon) => (
-                <Chip key={pokemon.name} {...pokemon} />
+            {POKEMONS.map((pokemon, index) => (
+                <Chip key={pokemon.name} disabled={index < 8 - props.leftAttempts} {...pokemon} />
             ))}
         </section>
     );
