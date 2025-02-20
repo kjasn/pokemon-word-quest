@@ -6,13 +6,23 @@ const KEYBOARD_KEYS = [
     ["Z", "X", "C", "V", "B", "N", "M"],
 ];
 
-export default function Keyboard() {
+interface KeyboardProps {
+    onClick: (letter: string) => void;
+    guessedLetters?: string[];
+}
+
+export default function Keyboard(props: KeyboardProps) {
     return (
         <section className="keyboard">
             {KEYBOARD_KEYS.map((row, rowIndex) => (
                 <div key={rowIndex} className="keyboard-row">
                     {row.map((k) => (
-                        <KeyboardKey key={k} letter={k} />
+                        <KeyboardKey
+                            key={k}
+                            letter={k}
+                            onClick={() => props.onClick(k)}
+                            disabled={props.guessedLetters?.includes(k) ?? false}
+                        />
                     ))}
                 </div>
             ))}
