@@ -20,29 +20,123 @@
     */
 }
 
-header > img {
-    width: 350px;
-    margin-bottom: 0.5rem;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)); /* 添加阴影效果 */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 1rem; */
+    margin-bottom: 1rem;
 }
 
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.game-logo {
+    width: 200px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.game-logo:hover {
+    transform: scale(1.05);
+}
+
+.icons-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.icon:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/************** Dictionary  **************/
+.dict-selector {
+    position: relative;
+    display: inline-block;
+}
+
+.dict-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    z-index: 10;
+    min-width: 120px;
+}
+
+.dict-item {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    color: #2c3e50;
+    transition: background-color 0.2s ease;
+}
+
+.dict-item:hover {
+    background-color: #f1f5f9;
+}
+/*******************************/
+
 header > h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 800;
+    /* margin: 1.5rem 0 1rem; */
+    margin-top: 0;
     margin-bottom: 1rem;
-    color: #2c3e50; /* 深色标题 */
+    color: #2c3e50;
 }
 
 header > p {
     font-size: 1.1rem;
     font-weight: 500;
-    /* max-width: 350px; */
-    margin: 0 auto 2rem;
-    color: #34495e; /* 深色文字 */
+    max-width: 600px;
+    margin: 0;
+    color: #34495e;
     line-height: 1.6;
 }
 
-/* *********************************** */
+@media (max-width: 768px) {
+    .game-logo {
+        width: 150px;
+    }
+
+    header > h1 {
+        font-size: 1.5rem;
+    }
+
+    header > p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+}
 
 section.game-status {
     background-color: #10a95b;
