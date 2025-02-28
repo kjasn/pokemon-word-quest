@@ -1,0 +1,18 @@
+:root {
+    /* Light theme (default) */
+    --bg-primary: #fff8e1;
+    --text-primary: #2c3e50;
+    --text-secondary: #34495e;
+    --keyboard-bg: #e2e8f0;
+    --keyboard-text: #2d3748;
+    --chip-shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a202c;
+    --text-primary: #e2e8f0;
+    --text-secondary: #cbd5e1;
+    --keyboard-bg: #2d3748;
+    --keyboard-text: #e2e8f0;
+    --chip-shadow: rgba(255, 255, 255, 0.1);
+}

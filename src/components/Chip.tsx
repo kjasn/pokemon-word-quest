@@ -6,15 +6,17 @@ interface ChipProps {
     disabled?: boolean;
 }
 
-export default function Chip(props: ChipProps) {
+export default function Chip({ backgroundColor, color, name, url, disabled }: ChipProps) {
     const styles = {
-        backgroundColor: props.disabled ? "#ccc" : props.backgroundColor,
-        color: props.disabled ? "#666" : props.color,
+        backgroundColor: disabled ? "#444" : backgroundColor,
+        color: disabled ? "#999" : color,
+        transform: disabled ? "scale(0.95)" : "scale(1)",
     };
+
     return (
-        <div className="chip-item" style={styles}>
-            <img src={props.url} alt={props.name} />
-            <p>{props.name}</p>
+        <div className={`chip-item ${disabled ? "disabled" : ""}`} style={styles}>
+            <img src={url} alt={name} />
+            <p>{name}</p>
         </div>
     );
 }

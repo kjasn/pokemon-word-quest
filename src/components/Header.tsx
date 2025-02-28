@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 import pokemonLogo from "../assets/logo.svg";
 import dictionary from "../assets/dictionary-book-with-letters-a-to-z.svg";
 import github from "../assets/github.svg";
+import moon from "../assets/moon.svg";
+import sun from "../assets/sun.svg";
 
 interface HeaderProps {
     onDictionaryChange: (dictName: string) => void;
 }
 
 export default function Header({ onDictionaryChange }: HeaderProps) {
+    const { theme, toggleTheme } = useTheme();
     const [showDictMenu, setShowDictMenu] = useState(false);
 
     const dictionaries = [
@@ -28,6 +32,14 @@ export default function Header({ onDictionaryChange }: HeaderProps) {
             <div className="header-container">
                 <img className="game-logo" src={pokemonLogo} alt="Pokemon Logo" />
                 <div className="icons-container">
+                    <div className="theme-toggle">
+                        <img
+                            className="icon"
+                            src={theme === "light" ? moon : sun}
+                            alt="Toggle Theme"
+                            onClick={toggleTheme}
+                        />
+                    </div>
                     <div className="dict-selector">
                         <img
                             className="icon"

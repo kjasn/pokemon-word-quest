@@ -6,7 +6,9 @@
     text-align: center;
 
     /*******  background color ********/
-    background-color: #fff8e1;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 
     /* background: linear-gradient(to bottom, #e3f2fd, #bbdefb); */
     /* background-color: #e8f5e9; */
@@ -106,7 +108,7 @@ header > h1 {
     /* margin: 1.5rem 0 1rem; */
     margin-top: 0;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: var(--text-primary);
 }
 
 header > p {
@@ -114,7 +116,7 @@ header > p {
     font-weight: 500;
     max-width: 600px;
     margin: 0;
-    color: #34495e;
+    color: var(--text-secondary);
     line-height: 1.6;
 }
 
@@ -176,9 +178,10 @@ div.chip-item {
     display: flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transition: all 0.3s ease;
+    border-radius: 9999px;
+    transition: all 0.5s ease;
     cursor: pointer;
+    box-shadow: 0 2px 4px var(--chip-shadow);
 }
 
 div.chip-item:hover {
@@ -186,10 +189,40 @@ div.chip-item:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+div.chip-item.disabled {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transform: scale(0.95);
+    box-shadow: none;
+    animation: losePokemon 0.5s ease;
+}
+
+@keyframes losePokemon {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        filter: grayscale(0);
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+        filter: grayscale(100%);
+    }
+}
+
 div.chip-item > img {
     width: 32px;
     height: 32px;
     margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+div.chip-item.disabled > img {
+    transform: rotate(-15deg);
 }
 
 div.chip-item > p {
@@ -244,8 +277,8 @@ section.keyboard {
     font-weight: 600;
     border: none;
     border-radius: 6px;
-    background-color: #e2e8f0;
-    color: #2d3748;
+    background-color: var(--keyboard-bg);
+    color: var(--keyboard-text);
     cursor: pointer;
     transition: all 0.2s ease;
     text-transform: uppercase;

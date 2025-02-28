@@ -4,6 +4,8 @@ import Keyboard from "./components/Keyboard";
 import Chips from "./components/Chips";
 
 import { useState, useEffect } from "react";
+import "./styles/theme.css";
+import { ThemeProvider } from "./context/ThemeContext";
 
 export default function App() {
     const [currentWord, setCurrentWord] = useState("");
@@ -49,18 +51,18 @@ export default function App() {
         if (currentWord.includes(letter.toLowerCase())) {
             // 更新显示的字母
             for (let i = 0; i < currentWord.length; i++) {
-                if (currentWord[i] === letter.toLowerCase()) {
+                if (currentWord[i] === letter.toLowerCase() && !showedIndexes.includes(i)) {
                     setShowedIndexes((prev) => {
                         if (prev.includes(i)) return prev;
                         return [...prev, i];
                     });
+                    break;
                 }
             }
         } else {
             // 猜错 失去一只宝可梦
-            if (leftAttempts > 1) {
-                setLeftAttempts((prev) => prev - 1);
-            } else {
+            setLeftAttempts((prev) => prev - 1);
+            if (leftAttempts <= 1) {
                 // TODO: 游戏结束
                 console.log("Game Over");
             }
@@ -68,14 +70,16 @@ export default function App() {
     }
 
     return (
-        <main>
-            <Header onDictionaryChange={handleDictionaryChange} />
-            <Word word={currentWord} showLetters={showedIndexes} />
-            <Chips leftAttempts={leftAttempts} />
-            <Keyboard onClick={addGuessedLetters} />
-            <button className="restart-btn" onClick={() => initialWord()}>
-                再玩一次
-            </button>
-        </main>
+        <ThemeProvider>
+            <main>
+                <Header onDictionaryChange={handleDictionaryChange} />
+                <Word word={currentWord} showLetters={showedIndexes} />
+                <Chips leftAttempts={leftAttempts} />
+                <Keyboard onClick={addGuessedLetters} />
+                <button className="restart-btn" onClick={() => initialWord()}>
+                    再玩一次
+                </button>
+            </main>
+        </ThemeProvider>
     );
 }
