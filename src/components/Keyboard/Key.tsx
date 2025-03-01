@@ -1,4 +1,4 @@
-import "../App.css";
+import styles from "./index.module.css";
 
 interface KeyboardKeyProps {
     letter: string;
@@ -8,7 +8,11 @@ interface KeyboardKeyProps {
 
 export default function KeyboardKey(props: KeyboardKeyProps) {
     return (
-        <button className="keyboard-key" onClick={props.onClick} disabled={props.disabled}>
+        <button
+            className={styles["keyboard-key"]}
+            onClick={props.onClick}
+            disabled={props.disabled}
+        >
             {props.letter}
         </button>
     );

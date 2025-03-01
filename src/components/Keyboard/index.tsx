@@ -1,4 +1,6 @@
-import KeyboardKey from "./KeyboardKey";
+import KeyboardKey from "./Key";
+import styles from "./index.module.css";
+import { useEffect } from "react";
 
 const KEYBOARD_KEYS = [
     ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
@@ -12,10 +14,23 @@ interface KeyboardProps {
 }
 
 export default function Keyboard(props: KeyboardProps) {
+    // 监听键盘输入
+    useEffect(() => {
+        const handleKeyPress = (event: KeyboardEvent) => {
+            const key = event.key.toLowerCase();
+            if (key.length === 1 && key.match(/[A-Za-z]/)) {
+                props.onClick(key);
+            }
+        };
+
+        window.addEventListener("keypress", handleKeyPress);
+        return () => window.removeEventListener("keypress", handleKeyPress);
+    }, [props]);
+
     return (
-        <section className="keyboard">
+        <section className={styles.keyboard}>
             {KEYBOARD_KEYS.map((row, rowIndex) => (
-                <div key={rowIndex} className="keyboard-row">
+                <div key={rowIndex} className={styles.keyboardRow}>
                     {row.map((k) => (
                         <KeyboardKey
                             key={k}

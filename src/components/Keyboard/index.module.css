@@ -1,0 +1,33 @@
+.keyboard {
+    /* 移除 section 选择器 */
+    display: none;
+}
+
+.keyboardRow {
+    display: flex;
+    gap: 0.35rem;
+    justify-content: center;
+}
+
+.keyboardKey {
+    height: 3.5rem;
+    min-width: 2.5rem;
+    padding: 0 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--keyboard-bg);
+    color: var(--keyboard-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.keyboardKey:hover {
+    background-color: #cbd5e1;
+}
+
+.keyboardKey:active {
+    transform: scale(0.95);
+}

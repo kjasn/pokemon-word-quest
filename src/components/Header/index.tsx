@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { useTheme } from "../context/ThemeContext";
-import pokemonLogo from "../assets/logo.svg";
-import dictionary from "../assets/dictionary-book-with-letters-a-to-z.svg";
-import github from "../assets/github.svg";
-import moon from "../assets/moon.svg";
-import sun from "../assets/sun.svg";
+import { useTheme } from "../../context/ThemeContext";
+import pokemonLogo from "../../assets/logo.svg";
+import dictionary from "../../assets/dictionary-book-with-letters-a-to-z.svg";
+import github from "../../assets/github.svg";
+import moon from "../../assets/moon.svg";
+import sun from "../../assets/sun.svg";
+import styles from "./index.module.css";
 
 interface HeaderProps {
     onDictionaryChange: (dictName: string) => void;
@@ -28,31 +29,29 @@ export default function Header({ onDictionaryChange }: HeaderProps) {
     };
 
     return (
-        <header>
-            <div className="header-container">
-                <img className="game-logo" src={pokemonLogo} alt="Pokemon Logo" />
-                <div className="icons-container">
-                    <div className="theme-toggle">
+        <header className={styles.header}>
+            <div className={styles.container}>
+                <img className={styles.logo} src={pokemonLogo} alt="Pokemon Logo" />
+                <div className={styles.icons}>
+                    <img
+                        className={styles.icon}
+                        src={theme === "light" ? moon : sun}
+                        alt="Toggle Theme"
+                        onClick={toggleTheme}
+                    />
+                    <div className={styles.dictSelector}>
                         <img
-                            className="icon"
-                            src={theme === "light" ? moon : sun}
-                            alt="Toggle Theme"
-                            onClick={toggleTheme}
-                        />
-                    </div>
-                    <div className="dict-selector">
-                        <img
-                            className="icon"
+                            className={styles.icon}
                             src={dictionary}
                             alt="Dictionary"
                             onClick={() => setShowDictMenu((prev) => !prev)}
                         />
                         {showDictMenu && (
-                            <div className="dict-menu">
+                            <div className={styles.dictMenu}>
                                 {dictionaries.map((dict) => (
                                     <button
                                         key={dict.id}
-                                        className="dict-item"
+                                        className={styles.dictItem}
                                         onClick={() => handleDictSelect(dict.id)}
                                     >
                                         {dict.name}
@@ -66,7 +65,7 @@ export default function Header({ onDictionaryChange }: HeaderProps) {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <img className="icon" src={github} alt="GitHub" />
+                        <img className={styles.icon} src={github} alt="GitHub" />
                     </a>
                 </div>
             </div>

@@ -1,0 +1,80 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+    margin-bottom: 1rem;
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.icon:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/************** Dictionary  **************/
+.dictSelector {
+    position: relative;
+    display: inline-block;
+}
+
+.dictMenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    z-index: 10;
+    min-width: 120px;
+}
+
+.dictItem {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: background-color 0.2s ease;
+}
+
+.dictItem:hover {
+    background-color: var(--bg-hover);
+}

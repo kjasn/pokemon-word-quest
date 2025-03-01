@@ -1,3 +1,5 @@
+import styles from "./index.module.css";
+
 interface ChipProps {
     backgroundColor: string;
     color: string;
@@ -7,16 +9,18 @@ interface ChipProps {
 }
 
 export default function Chip({ backgroundColor, color, name, url, disabled }: ChipProps) {
-    const styles = {
+    const customStyles = {
         backgroundColor: disabled ? "#444" : backgroundColor,
         color: disabled ? "#999" : color,
-        transform: disabled ? "scale(0.95)" : "scale(1)",
     };
 
     return (
-        <div className={`chip-item ${disabled ? "disabled" : ""}`} style={styles}>
-            <img src={url} alt={name} />
-            <p>{name}</p>
+        <div
+            className={`${styles.chip} ${disabled ? styles.chipDisabled : ""}`}
+            style={customStyles}
+        >
+            <img src={url} alt={name} className={styles.chipImage} />
+            <p className={styles.chipName}>{name}</p>
         </div>
     );
 }

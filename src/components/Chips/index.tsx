@@ -1,14 +1,15 @@
-import "../App.css";
+import styles from "./index.module.css";
 import Chip from "./Chip";
 
-import Pikachu from "../assets/Pikachu.svg";
-import Bulbasaur from "../assets/Bulbasaur.svg";
-import Charizard from "../assets/Charizard.svg";
-import Squirtle from "../assets/Squirtle.svg";
-import Caterpie from "../assets/Caterpie.svg";
-import Pidgeot from "../assets/Pidgeot.svg";
-import Lapras from "../assets/Lapras.svg";
-import Tauros from "../assets/Tauros.svg";
+// import chip images
+import Pikachu from "../../assets/Pikachu.svg";
+import Bulbasaur from "../../assets/Bulbasaur.svg";
+import Charizard from "../../assets/Charizard.svg";
+import Squirtle from "../../assets/Squirtle.svg";
+import Caterpie from "../../assets/Caterpie.svg";
+import Pidgeot from "../../assets/Pidgeot.svg";
+import Lapras from "../../assets/Lapras.svg";
+import Tauros from "../../assets/Tauros.svg";
 
 const POKEMONS = [
     { name: "皮卡丘", url: Pikachu, backgroundColor: "#FFE135", color: "#000000" },
@@ -27,7 +28,7 @@ interface ChipsProps {
 
 export default function Chips(props: ChipsProps) {
     return (
-        <section className="chips">
+        <section className={styles.container}>
             {POKEMONS.map((pokemon, index) => (
                 <Chip key={pokemon.name} disabled={index < 8 - props.leftAttempts} {...pokemon} />
             ))}

@@ -2,9 +2,10 @@ import Header from "./components/Header";
 import Word from "./components/Word";
 import Keyboard from "./components/Keyboard";
 import Chips from "./components/Chips";
+import RestartBtn from "./components/RestartBtn";
 
 import { useState, useEffect } from "react";
-import "./styles/theme.css";
+// import "./styles/main.css";
 import { ThemeProvider } from "./context/ThemeContext";
 
 export default function App() {
@@ -27,7 +28,7 @@ export default function App() {
     }
 
     function initialWord(words = wordList) {
-        if (words.length === 0) return;
+        if (!words || words.length === 0) return;
         const randomIndex = Math.floor(Math.random() * words.length);
         setCurrentWord(words[randomIndex].name.toLowerCase());
         setShowedIndexes([]);
@@ -76,9 +77,7 @@ export default function App() {
                 <Word word={currentWord} showLetters={showedIndexes} />
                 <Chips leftAttempts={leftAttempts} />
                 <Keyboard onClick={addGuessedLetters} />
-                <button className="restart-btn" onClick={() => initialWord()}>
-                    再玩一次
-                </button>
+                <RestartBtn initialWord={() => initialWord()} />
             </main>
         </ThemeProvider>
     );
