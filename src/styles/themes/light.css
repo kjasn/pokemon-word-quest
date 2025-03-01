@@ -1,0 +1,8 @@
+[data-theme="light"] {
+    --bg-primary: #fff8e1;
+    --text-primary: #2c3e50;
+    --text-secondary: #34495e;
+    --keyboard-bg: #e2e8f0;
+    --keyboard-text: #2d3748;
+    --chip-shadow: rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

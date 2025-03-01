@@ -1,0 +1,43 @@
+@media (max-width: 768px) {
+    /* Keyboard */
+    .keyboard {
+        display: flex !important; /* 使用 !important 覆盖默认的 display: none */
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 2rem auto;
+        max-width: 800px;
+    }
+
+    .keyboardKey {
+        height: 3rem;
+        min-width: 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Keyboard */
+    .keyboardKey {
+        height: 2.5rem;
+        min-width: 1.8rem;
+        padding: 0 0.3rem;
+        font-size: 0.9rem;
+    }
+
+    .keyboardRow {
+        gap: 0.25rem;
+    }
+
+    /* RestartBtn */
+    .restartBtn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    /* Word */
+    .letter {
+        font-size: 1.5rem;
+        min-width: 1rem;
+    }
+}
