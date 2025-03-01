@@ -1,8 +1,12 @@
 [data-theme="light"] {
-    --bg-primary: #fff8e1;
-    --text-primary: #2c3e50;
-    --text-secondary: #34495e;
-    --keyboard-bg: #e2e8f0;
-    --keyboard-text: #2d3748;
-    --chip-shadow: rgba(0, 0, 0, 0.1);
+    --bg-primary: #fff9c4; /* 淡黄色背景 */
+    --text-primary: #5d4037; /* 深棕色文字 */
+    --text-secondary: #8d6e63; /* 棕色次要文字 */
+    --keyboard-bg: #fdd835; /* 皮卡丘黄色键盘 */
+    --keyboard-text: #5d4037; /* 深棕色键盘文字 */
+    --chip-shadow: rgba(229, 57, 53, 0.2); /* 红色阴影 */
+
+    /* 可选的额外变量 */
+    --highlight: #e53935; /* 皮卡丘脸颊红用于强调 */
+    --hover: #ffb300; /* 略深的黄色用于悬停 */
 }

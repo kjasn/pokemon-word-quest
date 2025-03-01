@@ -1,8 +1,12 @@
 [data-theme="dark"] {
-    --bg-primary: #1a202c;
-    --text-primary: #e2e8f0;
-    --text-secondary: #cbd5e1;
-    --keyboard-bg: #2d3748;
-    --keyboard-text: #e2e8f0;
-    --chip-shadow: rgba(255, 255, 255, 0.1);
+    --bg-primary: #2d2b55; /* 暗紫色背景 */
+    --text-primary: #e2e8f0; /* 亮色文字 */
+    --text-secondary: #a292e3; /* 浅紫色次要文字 */
+    --keyboard-bg: #4a4a7d; /* 耿鬼主体色键盘 */
+    --keyboard-text: #e2e8f0; /* 亮色键盘文字 */
+    --chip-shadow: rgba(142, 124, 195, 0.2); /* 紫色阴影 */
+
+    /* 可选的额外变量 */
+    --highlight: #8e7cc3; /* 亮紫色用于强调 */
+    --hover: #a292e3; /* 更亮的紫色用于悬停 */
 }
