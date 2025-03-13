@@ -11,6 +11,7 @@ const KEYBOARD_KEYS = [
 interface KeyboardProps {
     onClick: (letter: string) => void;
     guessedLetters?: string[];
+    leftAttempts: number;
 }
 
 export default function Keyboard(props: KeyboardProps) {
@@ -18,7 +19,7 @@ export default function Keyboard(props: KeyboardProps) {
     useEffect(() => {
         const handleKeyPress = (event: KeyboardEvent) => {
             const key = event.key.toLowerCase();
-            if (key.length === 1 && key.match(/[A-Za-z]/)) {
+            if (key.length === 1 && key.match(/[A-Za-z]/) && props.leftAttempts > 0) {
                 props.onClick(key);
             }
         };
