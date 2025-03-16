@@ -14,6 +14,7 @@
 
 A fun word-guessing game where you lose a Pokémon for every wrong guess, are you ready to become a Pokémon Master 😉?
 
+![preview](https://s2.loli.net/2025/03/16/XgK9qE3oVnmOvbZ.png)
 Take a look, [click here](https://pokemon-word-quest.vercel.app/)
 
 ## Features

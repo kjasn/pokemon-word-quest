@@ -14,6 +14,8 @@
 
 这是一个简单的猜单词游戏：试着猜出正确的单词，记住每猜错一次，你就会失去一只宝可梦。现在来挑战成为宝可梦大师吧！🎮✨
 
+![展示图](https://s2.loli.net/2025/03/16/XgK9qE3oVnmOvbZ.png)
+
 试试看, [点击这里](https://pokemon-word-quest.vercel.app/)
 
 ## 特点
