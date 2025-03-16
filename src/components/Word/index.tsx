@@ -20,7 +20,9 @@ export default function WordCard(props: WordProps) {
         }
 
         try {
+            // 取消之前的发音
             window.speechSynthesis.cancel();
+
             const utterance = new SpeechSynthesisUtterance(props.word.name);
             utterance.lang = "en-US";
             utterance.rate = 0.8;
@@ -37,8 +39,23 @@ export default function WordCard(props: WordProps) {
     useEffect(() => {
         if (props.word) {
             pronounce();
+        } else {
+            // TODO: 单词加载 和 发音顺序
+            console.log("No word to pronounce");
         }
     }, [props.word, pronounce]);
+
+    // 快捷键
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.ctrlKey && event.key.toLowerCase() === "j") {
+                event.preventDefault();
+                pronounce();
+            }
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [pronounce]);
 
     if (!props.word) return null;
 
@@ -56,10 +73,14 @@ export default function WordCard(props: WordProps) {
                     className={styles.pronounceIcon}
                     src={pronounceIcon}
                     alt="Pronounce"
+                    title="按 Ctrl+J 发音"
                     onClick={pronounce}
                 />
             </div>
-            <span className={styles.translation}>{props.word.trans}</span>
+            {/* 只剩 2 只宝可梦 或 才对单词 显示单词释义 */}
+            {(props.leftAttempts <= 2 || props.showLetters.length === props.word.name.length) && (
+                <span className={styles.translation}>{props.word.trans}</span>
+            )}
             {error && <span className={styles.error}>{error}</span>}
         </section>
     );
