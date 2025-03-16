@@ -73,8 +73,6 @@ export default function Header({ onDictionaryChange }: HeaderProps) {
                     <img className={styles.icon} src={github} alt="GitHub" />
                 </a>
             </div>
-
-            {/* <p>试试在 8 次机会用完之前猜出单词吧，每猜错一次就会失去一只宝可梦</p> */}
         </header>
     );
 }
