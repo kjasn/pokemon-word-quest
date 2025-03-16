@@ -10,7 +10,6 @@ const KEYBOARD_KEYS = [
 
 interface KeyboardProps {
     onClick: (letter: string) => void;
-    guessedLetters?: string[];
     leftAttempts: number;
 }
 
@@ -33,12 +32,7 @@ export default function Keyboard(props: KeyboardProps) {
             {KEYBOARD_KEYS.map((row, rowIndex) => (
                 <div key={rowIndex} className={styles.keyboardRow}>
                     {row.map((k) => (
-                        <KeyboardKey
-                            key={k}
-                            letter={k}
-                            onClick={() => props.onClick(k)}
-                            disabled={props.guessedLetters?.includes(k) ?? false}
-                        />
+                        <KeyboardKey key={k} letter={k} onClick={() => props.onClick(k)} />
                     ))}
                 </div>
             ))}
