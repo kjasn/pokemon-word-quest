@@ -28,12 +28,20 @@
 
 ## 运行项目
 
+-   本地运行
+
 1. 克隆到本地
 2. 运行如下命令:
 
 ```bash
 pnpm i
 pnpm start
+```
+
+-   使用 Docker 运行
+
+```bash
+docker pull kjasn/pokemon-wq
 ```
 
 ## TODO

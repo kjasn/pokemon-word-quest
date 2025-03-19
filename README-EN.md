@@ -27,12 +27,20 @@ Take a look, [click here](https://pokemon-word-quest.vercel.app/)
 
 ## Quick Start
 
+-   Run it locally
+
 1. Clone it.
 2. Run the following commands:
 
 ```bash
 pnpm i
 pnpm start
+```
+
+-   Run with Docker
+
+```bash
+docker pull kjasn/pokemon-wq
 ```
 
 ## Acknowledgments
