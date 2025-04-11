@@ -3,11 +3,11 @@ import { Word } from "../../types/word";
 import pronounceIcon from "../../assets/pronounce.svg";
 import { useCallback, useState, useEffect } from "react";
 
-type WordProps = {
+interface WordProps {
     word: Word | null;
     showLetters: number[];
     leftAttempts: number;
-};
+}
 
 export default function WordCard(props: WordProps) {
     const [error, setError] = useState<string | null>(null);

@@ -1,13 +1,7 @@
 import Header from "./components/Header";
-import WordCard from "./components/Word";
-import Keyboard from "./components/Keyboard";
-import Chips from "./components/Chips";
-import RestartBtn from "./components/RestartBtn";
-import Instructions from "./components/Instructions";
-
-import { useState, useEffect, useRef } from "react";
+import GameBoy from "./components/GameBoy";
+import { useState, useEffect } from "react";
 import { ThemeProvider } from "./context/ThemeContext";
-
 import { Word } from "./types/word";
 
 export default function App() {
@@ -17,8 +11,6 @@ export default function App() {
     const [leftAttempts, setLeftAttempts] = useState(8);
     const [showedIndexes, setShowedIndexes] = useState<number[]>([]);
     const [currentWordMap, setCurrentWordMap] = useState<Map<string, number[]>>(new Map());
-
-    const buttonRef = useRef<HTMLButtonElement>(null);
 
     async function loadDictionary(dictName: string) {
         try {
@@ -64,13 +56,6 @@ export default function App() {
         loadDictionary(currentDict);
     }, []);
 
-    // 游戏失败后自动聚焦到重新开始按钮
-    useEffect(() => {
-        if (leftAttempts <= 0 && buttonRef.current) {
-            buttonRef.current.focus();
-        }
-    }, [leftAttempts]);
-
     function handleDictionaryChange(dictName: string) {
         loadDictionary(dictName);
     }
@@ -110,17 +95,13 @@ export default function App() {
         <ThemeProvider>
             <main>
                 <Header onDictionaryChange={handleDictionaryChange} />
-                <Instructions leftAttempts={leftAttempts} />
-                <WordCard
+                <GameBoy
                     word={currentWord}
                     showLetters={showedIndexes}
                     leftAttempts={leftAttempts}
+                    onKeyClick={addGuessedLetters}
+                    onRestart={restartGame}
                 />
-                <Chips leftAttempts={leftAttempts} />
-                <Keyboard onClick={addGuessedLetters} leftAttempts={leftAttempts} />
-                {leftAttempts <= 0 && (
-                    <RestartBtn restart={() => restartGame()} buttonRef={buttonRef} />
-                )}
             </main>
         </ThemeProvider>
     );
